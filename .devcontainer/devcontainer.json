@@ -1,6 +1,44 @@
 {
-    "name": "rust-devcontainer",
+    "name": "Advent of Code 2023",
     "image": "mcr.microsoft.com/devcontainers/rust:latest",
-    "postCreateCommand": "rustc --version",
+    "runArgs": [
+        "--name=advent-of-code-2023"
+    ],
+
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "serayuzgur.crates",
+                "vadimcn.vscode-lldb"
+            ]
+        }
+    },
+
+    // Configure container-specific features.
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils": {}
+    },
+
+    // Use 'mounts' to persist data in a bind mount or volume.
+	"mounts": [
+		{
+			"source": "devcontainer-cargo-cache-${devcontainerId}",
+			"target": "/usr/local/cargo",
+			"type": "volume"
+		}
+	],
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [],
+
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": {
+        "git": "sudo git config --system --add safe.directory ${containerWorkspaceFolder}",
+        "rustc": "rustc --version"
+    },
+
+    // Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "vscode"
 }
