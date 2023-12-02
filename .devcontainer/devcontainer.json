@@ -2,7 +2,8 @@
     "name": "Advent of Code 2023",
     "image": "mcr.microsoft.com/devcontainers/rust:latest",
     "runArgs": [
-        "--name=advent-of-code-2023"
+        "--name=advent-of-code-2023",
+        "--env-file=.devcontainer/devcontainer.env"
     ],
 
     // Configure tool-specific properties.
@@ -36,6 +37,7 @@
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": {
         "git": "sudo git config --system --add safe.directory ${containerWorkspaceFolder}",
+        "cargo": "cargo install aoc-cli",
         "rustc": "rustc --version"
     },
 
