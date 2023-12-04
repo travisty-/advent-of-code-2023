@@ -13,7 +13,10 @@
                 "rust-lang.rust-analyzer",
                 "serayuzgur.crates",
                 "vadimcn.vscode-lldb"
-            ]
+            ],
+            "settings": {
+                "editor.inlayHints.enabled": "offUnlessPressed"
+            }
         }
     },
 
