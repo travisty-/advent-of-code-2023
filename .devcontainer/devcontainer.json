@@ -26,13 +26,13 @@
     },
 
     // Use 'mounts' to persist data in a bind mount or volume.
-	"mounts": [
-		{
-			"source": "devcontainer-cargo-cache-${devcontainerId}",
-			"target": "/usr/local/cargo",
-			"type": "volume"
-		}
-	],
+    "mounts": [
+        {
+            "source": "devcontainer-cargo-cache-${devcontainerId}",
+            "target": "/usr/local/cargo",
+            "type": "volume"
+        }
+    ],
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [],
